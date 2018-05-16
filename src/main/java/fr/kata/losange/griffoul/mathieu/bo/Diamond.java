@@ -7,13 +7,16 @@ import java.util.List;
  */
 public class Diamond {
 
+	/**
+	 * Liste contenant chacune des lignes du losange dans l'ordre d'affichage
+	 */
 	private List<String> lines;
-
-	public Diamond() {
-	}
 
 	public Diamond(List<String> lines) {
 		this.lines = lines;
+	}
+
+	public Diamond() {
 	}
 
 	public List<String> getLines() {

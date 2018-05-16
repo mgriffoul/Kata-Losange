@@ -8,16 +8,22 @@ import java.util.Scanner;
  */
 public class KeyboardInputUtil {
 
+	private static Scanner keyboardInput = new Scanner(System.in);
+
 	/**
-	 * Méthode
+	 * Méthode demandant la saisie utilisateur au clavier
 	 * @return
 	 */
 	public String askForInput(){
-		Scanner keyboardInput = new Scanner(System.in);
 		String s = keyboardInput.nextLine();
-		keyboardInput.close();
 		return s;
 	}
 
+	/**
+	 * Méthode de cloture des ressources du Scanner
+	 */
+	public void closeScannerResource(){
+		keyboardInput.close();
+	}
 
 }

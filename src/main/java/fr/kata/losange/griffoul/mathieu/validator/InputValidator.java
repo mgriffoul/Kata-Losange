@@ -5,7 +5,13 @@ package fr.kata.losange.griffoul.mathieu.validator;
  */
 public class InputValidator {
 
-	public boolean isInputValid(String input){
+	/**
+	 * Méthode de validation de la saisie
+	 * Renvoie vrai si la saisie N'EST PAS valide
+	 * @param input
+	 * @return
+	 */
+	public boolean isInputInvalid(String input){
 		return !input.matches("[a-z]");
 	}
 

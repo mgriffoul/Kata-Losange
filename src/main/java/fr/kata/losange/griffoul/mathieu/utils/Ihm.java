@@ -16,10 +16,23 @@ public class Ihm {
 		System.out.println("Saisie incorrecte");
 	}
 
+	/**
+	 * Méthode d'affichage d'un losange
+	 * @param diamond
+	 */
 	public void printDiamond(Diamond diamond){
 		System.out.println("Votre losange :");
 		for (String s : diamond.getLines()) {
 			System.out.println(s);
 		}
 	}
+
+	/**
+	 * Dans le cas où l'utilisateur a saisi "a", il n'y a pas de losange à construire. On affiche "a" et on sort du programme.
+	 */
+	public void aCasePrint(){
+		System.out.println("a");
+		System.exit(0);
+	}
+
 }

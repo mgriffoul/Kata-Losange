@@ -10,7 +10,14 @@ import fr.kata.losange.griffoul.mathieu.bo.Diamond;
  */
 public class DiamondBuilder {
 
-	public Diamond halfDiamondBuilder(String verticalCharLine){
+
+	/**
+	 * Méthode qui construit la première moitié du losange à partir de la séquence de lettre verticale induite par la saisie de l'utilisateur.
+	 * On calcul pour chaque ligne le nombre d'espace à rajouter avant le caractère de la ligne pour former un demi losange.
+	 * @param verticalCharLine
+	 * @return
+	 */
+	public Diamond halfDiamondBuilder(String verticalCharLine) {
 
 		List<String> lines = new ArrayList<>();
 
@@ -43,10 +50,16 @@ public class DiamondBuilder {
 
 		}
 
-		return  new Diamond(lines);
+		return new Diamond(lines);
 	}
 
-	public Diamond buildFullDiamond(Diamond diamond){
+	/**
+	 * Méthode qui construit la deuxième moitié du losange à partir d'un losange à moitié formé
+	 * On calcul pour chaque ligne le nombre d'espace à rajouter après le caractère, puis on ajoute en fin de ligne le même caractère.
+	 * @param diamond
+	 * @return
+	 */
+	public void buildFullDiamond(Diamond diamond) {
 
 		List<String> newLines = new ArrayList<>();
 		List<String> lines = diamond.getLines();
@@ -81,8 +94,6 @@ public class DiamondBuilder {
 
 		newLines.add(lines.get(lines.size() - 1));
 		diamond.setLines(newLines);
-
-		return diamond;
 	}
 
 }

@@ -24,20 +24,28 @@ public class AppRunner {
 		ihm.giveInstruction();
 
 		String input = keyboardInputUtil.askForInput();
-		while (inputValidator.isInputValid(input)) {
+
+		//Validation de la saisie pour n'accepter qu'un seul caractère en minuscule
+		while (inputValidator.isInputInvalid(input)) {
 			ihm.sayInputIsInvalid();
 			ihm.giveInstruction();
-			keyboardInputUtil.askForInput();
+			input = keyboardInputUtil.askForInput();
+		}
+
+		//Cas de la saisie égale à "a"
+		if("a".equals(input)){
+			ihm.aCasePrint();
 		}
 
 		//construction de la première moitiée du losange
 		String verticalCharLine = verticalStringBuilder.buildVerticalString(input.charAt(0));
 		Diamond diamond = diamondBuilder.halfDiamondBuilder(verticalCharLine);
 		//construction de la seconde moitiée
-		diamond = diamondBuilder.buildFullDiamond(diamond);
+		diamondBuilder.buildFullDiamond(diamond);
 
 		//affichage du losange
 		ihm.printDiamond(diamond);
+		keyboardInputUtil.closeScannerResource();
 	}
 
 
