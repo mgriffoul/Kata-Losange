@@ -5,6 +5,8 @@ package fr.kata.losange.griffoul.mathieu.builder;
  */
 public class VerticalStringBuilder {
 
+	private static final char START_CHAR_REF='a';
+
 	/**
 	 * Méthode qui construit la séquence de lettres dont sera composé le côté du losange d'une pointe à l'autre
 	 * @param c
@@ -12,7 +14,7 @@ public class VerticalStringBuilder {
 	 */
 	public String buildVerticalString(char c){
 		String verticalCharLine = "";
-		char startChar = 'a';
+		char startChar = START_CHAR_REF;
 
 		while (startChar <= c) {
 			verticalCharLine += startChar;

@@ -14,37 +14,39 @@ public class DiamondBuilder {
 	/**
 	 * Méthode qui construit la première moitié du losange à partir de la séquence de lettre verticale induite par la saisie de l'utilisateur.
 	 * On calcul pour chaque ligne le nombre d'espace à rajouter avant le caractère de la ligne pour former un demi losange.
+	 *
 	 * @param verticalCharLine
 	 * @return
 	 */
 	public Diamond halfDiamondBuilder(String verticalCharLine) {
 
 		List<String> lines = new ArrayList<>();
+		int spaceToAdd = verticalCharLine.length() / 2;
 
-		int spaceNumberToAdd = verticalCharLine.length() / 2;
+		//permet de savoir à quel moment le programme a atteint la pointe gauche du losange
 		boolean decroissant = true;
 
 		for (int i = 0; i < verticalCharLine.length(); i++) {
-
-			char c = verticalCharLine.charAt(i);
 			String s = "";
-			int compteur = 0;
+			int addedSpace = 0;
 
-			while (compteur < spaceNumberToAdd) {
+			//construction d'une ligne avec le bon nombre d'espace, puis ajout du caractère adequat
+			for (int j = addedSpace; j < spaceToAdd; j++) {
 				s += " ";
-				compteur++;
 			}
+			s += String.valueOf(verticalCharLine.charAt(i));
 
-			s += String.valueOf(c);
 			lines.add(s);
 
+			/*Tant que l'on a pas atteint la pointe gauche du losange, on décrémente le nombre d'espaces à ajouter.
+			Une fois la pointe atteinte, on incrémente jusqu'à la dernière ligne
+			Losrque spaceToAdd = 0, c'est qu'on atteint la pointe gauche du losange*/
 			if (decroissant) {
-				spaceNumberToAdd--;
+				spaceToAdd--;
 			} else {
-				spaceNumberToAdd++;
+				spaceToAdd++;
 			}
-
-			if (spaceNumberToAdd == 0) {
+			if (spaceToAdd == 0) {
 				decroissant = false;
 			}
 
@@ -56,44 +58,56 @@ public class DiamondBuilder {
 	/**
 	 * Méthode qui construit la deuxième moitié du losange à partir d'un losange à moitié formé
 	 * On calcul pour chaque ligne le nombre d'espace à rajouter après le caractère, puis on ajoute en fin de ligne le même caractère.
+	 *
 	 * @param diamond
 	 * @return
 	 */
 	public void buildFullDiamond(Diamond diamond) {
 
-		List<String> newLines = new ArrayList<>();
-		List<String> lines = diamond.getLines();
+		List<String> halfLines = diamond.getLines();
+		List<String> fullLines = new ArrayList<>();
 
-		newLines.add(lines.get(0));
+		//La première ligne ne contient qu'un seul caractère. On l'ajoute directement.
+		fullLines.add(halfLines.get(0));
 
-		boolean decroissant = false;
+		//permet de savoir à quel moment le programme a atteint la pointe droite du losange
+		boolean decroissant = true;
 
-		for (int i = 1; i < lines.size() - 1; i++) {
+		for (int i = 1; i < halfLines.size() - 1; i++) {
 
-			String currentLine = lines.get(i);
-			char charToAdd = lines.get(i).charAt(lines.get(i).length() - 1);
+			String currentLine = halfLines.get(i);
 
-			if (!decroissant) {
-				while (currentLine.length() < newLines.get(i - 1).length()) {
+			/*Tant que l'on a pas atteint la pointe gauche du losange,
+			il faut ajouter des espaces tant que la longueur de la ligne en construction n'est pas egale à la longueur de la ligne du dessus (sans le caractère de fin)
+			*/
+			/*Lorsque l'on a atteint la pointe gauche du losange,
+			il faut ajouter des espaces tant que la longueur de la ligne en construction n'est pas egale à la longueur de la ligne du dessus - 2 (sans le caractère de fin)
+			*/
+			if (decroissant) {
+				while (currentLine.length() < fullLines.get(i - 1).length()) {
 					currentLine += " ";
 				}
 			} else {
-				while (currentLine.length() < newLines.get(i - 1).length() - 2) {
+				while (currentLine.length() < fullLines.get(i - 1).length() - 2) {
 					currentLine += " ";
 				}
 			}
 
-			currentLine += charToAdd;
+			//Ajout du caractère de fin de ligne adequat
+			currentLine += halfLines.get(i).charAt(halfLines.get(i).length() - 1);
 
-			if (i >= lines.size() / 2) {
+			//Lorsque cette condition est remplie, c'est qu'on atteint la pointe gauche du losange
+			if (i >= halfLines.size() / 2) {
 				decroissant = true;
 			}
 
-			newLines.add(currentLine);
+			fullLines.add(currentLine);
 		}
 
-		newLines.add(lines.get(lines.size() - 1));
-		diamond.setLines(newLines);
+		//Idem que la première ligne, la dernière ligne est ajoutée sans traitement
+		fullLines.add(halfLines.get(halfLines.size() - 1));
+
+		diamond.setLines(fullLines);
 	}
 
 }
