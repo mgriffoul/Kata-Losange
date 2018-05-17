@@ -26,7 +26,7 @@ public class InputValidatorTest {
 		Assert.assertFalse(inputValidator.isInputValid("ezaeae"));
 		Assert.assertFalse(inputValidator.isInputValid("A"));
 		Assert.assertFalse(inputValidator.isInputValid("+"));
-		Assert.assertFalse(inputValidator.isInputValid("a5+"));
+		Assert.assertFalse(inputValidator.isInputValid("5+"));
 	}
 
 	@Test
