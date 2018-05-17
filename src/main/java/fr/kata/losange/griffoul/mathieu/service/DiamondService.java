@@ -9,11 +9,18 @@ import fr.kata.losange.griffoul.mathieu.builder.VerticalStringBuilder;
  */
 public class DiamondService {
 
-	private VerticalStringBuilder verticalStringBuilder = new VerticalStringBuilder();
-	private DiamondBuilder diamondBuilder = new DiamondBuilder();
+	private VerticalStringBuilder verticalStringBuilder;
+
+	private DiamondBuilder diamondBuilder;
+
+	public DiamondService() {
+		this.verticalStringBuilder = new VerticalStringBuilder();
+		this.diamondBuilder = new DiamondBuilder();
+	}
 
 	/**
 	 * Service de construction d'un losange
+	 *
 	 * @param c
 	 * @return
 	 */

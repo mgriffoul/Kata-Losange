@@ -8,19 +8,20 @@ import fr.kata.losange.griffoul.mathieu.bo.Diamond;
  */
 public class ConsoleDisplayerUtil {
 
-	public void giveInstruction(){
+	public void giveInstruction() {
 		System.out.println("Saisissez une lettre de l'alphabet.");
 	}
 
-	public void sayInputIsInvalid(){
+	public void sayInputIsInvalid() {
 		System.out.println("Saisie incorrecte");
 	}
 
 	/**
 	 * Méthode d'affichage d'un losange
+	 *
 	 * @param diamond
 	 */
-	public void printDiamond(Diamond diamond){
+	public void printDiamond(Diamond diamond) {
 		System.out.println("Votre losange :");
 		for (String s : diamond.getLines()) {
 			System.out.println(s);
@@ -30,7 +31,7 @@ public class ConsoleDisplayerUtil {
 	/**
 	 * Dans le cas où l'utilisateur a saisi "a", il n'y a pas de losange à construire. On affiche "a" et on sort du programme.
 	 */
-	public void aCasePrint(){
+	public void aCasePrint() {
 		System.out.println("a");
 		System.exit(0);
 	}

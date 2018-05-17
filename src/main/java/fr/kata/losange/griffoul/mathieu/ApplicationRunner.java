@@ -2,8 +2,6 @@ package fr.kata.losange.griffoul.mathieu;
 
 import java.io.IOException;
 
-import fr.kata.losange.griffoul.mathieu.builder.DiamondBuilder;
-import fr.kata.losange.griffoul.mathieu.builder.VerticalStringBuilder;
 import fr.kata.losange.griffoul.mathieu.service.DiamondService;
 import fr.kata.losange.griffoul.mathieu.utils.ConsoleDisplayerUtil;
 import fr.kata.losange.griffoul.mathieu.utils.KeyboardInputUtil;
@@ -20,8 +18,6 @@ public class ApplicationRunner {
 		KeyboardInputUtil keyboardInputUtil = new KeyboardInputUtil();
 		InputValidator inputValidator = new InputValidator();
 		ConsoleDisplayerUtil consoleDisplayerUtil = new ConsoleDisplayerUtil();
-		VerticalStringBuilder verticalStringBuilder = new VerticalStringBuilder();
-		DiamondBuilder diamondBuilder = new DiamondBuilder();
 		DiamondService diamondService = new DiamondService();
 
 		consoleDisplayerUtil.giveInstruction();
@@ -36,7 +32,7 @@ public class ApplicationRunner {
 		}
 
 		//Cas de la saisie égale à "a"
-		if("a".equals(input)){
+		if ("a".equals(input)) {
 			consoleDisplayerUtil.aCasePrint();
 		}
 

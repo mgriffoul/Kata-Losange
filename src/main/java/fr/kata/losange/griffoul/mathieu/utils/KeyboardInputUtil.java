@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Classe utilitaire pour les saisies clavier
  * Created by mathieu_griffoul on 16/05/2018.
  */
-public class KeyboardInputUtil implements Closeable{
+public class KeyboardInputUtil implements Closeable {
 
 	private Scanner keyboardInput;
 
@@ -18,9 +18,10 @@ public class KeyboardInputUtil implements Closeable{
 
 	/**
 	 * Méthode demandant la saisie utilisateur au clavier
+	 *
 	 * @return
 	 */
-	public String askForInput(){
+	public String askForInput() {
 		String s = keyboardInput.nextLine();
 		return s;
 	}

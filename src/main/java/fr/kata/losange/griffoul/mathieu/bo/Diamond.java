@@ -16,9 +16,6 @@ public class Diamond {
 		this.lines = lines;
 	}
 
-	public Diamond() {
-	}
-
 	public List<String> getLines() {
 		return lines;
 	}

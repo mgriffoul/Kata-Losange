@@ -8,10 +8,11 @@ public class InputValidator {
 	/**
 	 * Méthode de validation de la saisie
 	 * Renvoie vrai si la saisie est conforme
+	 *
 	 * @param input
 	 * @return
 	 */
-	public boolean isInputValid(String input){
+	public boolean isInputValid(String input) {
 		return input.matches("[a-z]");
 	}
 
