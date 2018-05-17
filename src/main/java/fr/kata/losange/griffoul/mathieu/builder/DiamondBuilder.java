@@ -18,7 +18,7 @@ public class DiamondBuilder {
 	 * @param verticalCharLine
 	 * @return
 	 */
-	public Diamond halfDiamondBuilder(String verticalCharLine) {
+	public Diamond leftDiamondBuilder(String verticalCharLine) {
 
 		List<String> lines = new ArrayList<>();
 		int spaceToAdd = verticalCharLine.length() / 2;
@@ -56,13 +56,13 @@ public class DiamondBuilder {
 	}
 
 	/**
-	 * Méthode qui construit la deuxième moitié du losange à partir d'un losange à moitié formé
-	 * On calcul pour chaque ligne le nombre d'espace à rajouter après le caractère, puis on ajoute en fin de ligne le même caractère.
+	 * Méthode qui construit la moitié droite du losange à partir d'un losange dont la partie gauche est déjà formée
+	 * On calcul pour chaque ligne le nombre d'espaces à rajouter après le premier caractère, puis on ajoute en fin de ligne le même caractère.
 	 *
 	 * @param diamond
 	 * @return
 	 */
-	public void buildFullDiamond(Diamond diamond) {
+	public void rightDiamondBuilder(Diamond diamond) {
 
 		List<String> halfLines = diamond.getLines();
 		List<String> fullLines = new ArrayList<>();
@@ -98,7 +98,7 @@ public class DiamondBuilder {
 
 			//Lorsque cette condition est remplie, c'est qu'on atteint la pointe gauche du losange
 			if (i >= halfLines.size() / 2) {
-				decroissant = true;
+				decroissant = false;
 			}
 
 			fullLines.add(currentLine);
