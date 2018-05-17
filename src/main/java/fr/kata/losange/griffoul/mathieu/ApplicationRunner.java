@@ -1,5 +1,7 @@
 package fr.kata.losange.griffoul.mathieu;
 
+import java.io.IOException;
+
 import fr.kata.losange.griffoul.mathieu.builder.DiamondBuilder;
 import fr.kata.losange.griffoul.mathieu.builder.VerticalStringBuilder;
 import fr.kata.losange.griffoul.mathieu.service.DiamondService;
@@ -12,7 +14,7 @@ import fr.kata.losange.griffoul.mathieu.validator.InputValidator;
  */
 public class ApplicationRunner {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		//Injections
 		KeyboardInputUtil keyboardInputUtil = new KeyboardInputUtil();
@@ -41,7 +43,7 @@ public class ApplicationRunner {
 		//construction et affichage du losange
 		consoleDisplayerUtil.printDiamond(diamondService.BuildDiamond(input.charAt(0)));
 
-		keyboardInputUtil.closeScannerResource();
+		keyboardInputUtil.close();
 	}
 
 

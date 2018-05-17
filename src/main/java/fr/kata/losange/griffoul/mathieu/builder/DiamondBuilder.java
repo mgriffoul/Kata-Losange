@@ -10,7 +10,6 @@ import fr.kata.losange.griffoul.mathieu.bo.Diamond;
  */
 public class DiamondBuilder {
 
-
 	/**
 	 * Méthode qui construit la première moitié du losange à partir de la séquence de lettre verticale induite par la saisie de l'utilisateur.
 	 * On calcul pour chaque ligne le nombre d'espace à rajouter avant le caractère de la ligne pour former un demi losange.
@@ -22,9 +21,8 @@ public class DiamondBuilder {
 
 		List<String> lines = new ArrayList<>();
 		int spaceToAdd = verticalCharLine.length() / 2;
-
 		//permet de savoir à quel moment le programme a atteint la pointe gauche du losange
-		boolean decroissant = true;
+		boolean decreasing = true;
 
 		for (int i = 0; i < verticalCharLine.length(); i++) {
 			String s = "";
@@ -41,13 +39,13 @@ public class DiamondBuilder {
 			/*Tant que l'on a pas atteint la pointe gauche du losange, on décrémente le nombre d'espaces à ajouter.
 			Une fois la pointe atteinte, on incrémente jusqu'à la dernière ligne
 			Losrque spaceToAdd = 0, c'est qu'on atteint la pointe gauche du losange*/
-			if (decroissant) {
+			if (decreasing) {
 				spaceToAdd--;
 			} else {
 				spaceToAdd++;
 			}
 			if (spaceToAdd == 0) {
-				decroissant = false;
+				decreasing = false;
 			}
 
 		}
@@ -71,7 +69,7 @@ public class DiamondBuilder {
 		fullLines.add(halfLines.get(0));
 
 		//permet de savoir à quel moment le programme a atteint la pointe droite du losange
-		boolean decroissant = true;
+		boolean decreasing = true;
 
 		for (int i = 1; i < halfLines.size() - 1; i++) {
 
@@ -83,7 +81,7 @@ public class DiamondBuilder {
 			/*Lorsque l'on a atteint la pointe gauche du losange,
 			il faut ajouter des espaces tant que la longueur de la ligne en construction n'est pas egale à la longueur de la ligne du dessus - 2 (sans le caractère de fin)
 			*/
-			if (decroissant) {
+			if (decreasing) {
 				while (currentLine.length() < fullLines.get(i - 1).length()) {
 					currentLine += " ";
 				}
@@ -98,7 +96,7 @@ public class DiamondBuilder {
 
 			//Lorsque cette condition est remplie, c'est qu'on atteint la pointe gauche du losange
 			if (i >= halfLines.size() / 2) {
-				decroissant = false;
+				decreasing = false;
 			}
 
 			fullLines.add(currentLine);

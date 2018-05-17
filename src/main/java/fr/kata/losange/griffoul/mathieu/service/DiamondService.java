@@ -10,9 +10,13 @@ import fr.kata.losange.griffoul.mathieu.builder.VerticalStringBuilder;
 public class DiamondService {
 
 	private VerticalStringBuilder verticalStringBuilder = new VerticalStringBuilder();
-
 	private DiamondBuilder diamondBuilder = new DiamondBuilder();
 
+	/**
+	 * Service de construction d'un losange
+	 * @param c
+	 * @return
+	 */
 	public Diamond BuildDiamond(char c) {
 		//construction de la première moitiée du losange
 		String verticalCharLine = verticalStringBuilder.buildVerticalString(c);

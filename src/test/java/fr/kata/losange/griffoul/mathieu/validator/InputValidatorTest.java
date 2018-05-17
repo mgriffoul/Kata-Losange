@@ -13,7 +13,7 @@ public class InputValidatorTest {
 
 	@Before
 	public void init() {
-		inputValidator = new InputValidator();
+		this.inputValidator = new InputValidator();
 	}
 
 	@Test
