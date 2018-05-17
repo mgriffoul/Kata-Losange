@@ -18,20 +18,20 @@ public class InputValidatorTest {
 
 	@Test
 	public void isInputInvalid_should_return_false_if_input_is_a_single_lowercase_char() {
-		Assert.assertFalse(inputValidator.isInputInvalid("e"));
+		Assert.assertTrue(inputValidator.isInputValid("e"));
 	}
 
 	@Test
 	public void isInputInvalid_should_return_true_if_input_is_not_a_single_lowercase_char() {
-		Assert.assertTrue(inputValidator.isInputInvalid("ezaeae"));
-		Assert.assertTrue(inputValidator.isInputInvalid("A"));
-		Assert.assertTrue(inputValidator.isInputInvalid("+"));
-		Assert.assertTrue(inputValidator.isInputInvalid("a5+"));
+		Assert.assertFalse(inputValidator.isInputValid("ezaeae"));
+		Assert.assertFalse(inputValidator.isInputValid("A"));
+		Assert.assertFalse(inputValidator.isInputValid("+"));
+		Assert.assertFalse(inputValidator.isInputValid("a5+"));
 	}
 
 	@Test
 	public void isInputInvalid_should_return_true_if_input_is_empty() {
-		Assert.assertTrue(inputValidator.isInputInvalid(""));
+		Assert.assertFalse(inputValidator.isInputValid(""));
 	}
 
 

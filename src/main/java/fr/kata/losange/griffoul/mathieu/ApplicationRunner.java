@@ -27,7 +27,7 @@ public class ApplicationRunner {
 		String input = keyboardInputUtil.askForInput();
 
 		//Validation de la saisie pour n'accepter qu'un seul caractère en minuscule
-		while (inputValidator.isInputInvalid(input)) {
+		while (!inputValidator.isInputValid(input)) {
 			consoleDisplayerUtil.sayInputIsInvalid();
 			consoleDisplayerUtil.giveInstruction();
 			input = keyboardInputUtil.askForInput();
