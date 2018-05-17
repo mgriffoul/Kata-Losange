@@ -24,7 +24,7 @@ public class VerticalStringBuilder {
 
 		startChar--;
 
-		while (startChar > 'a') {
+		while (startChar > START_CHAR_REF) {
 			startChar--;
 			verticalCharLine += startChar;
 		}
